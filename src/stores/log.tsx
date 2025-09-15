@@ -64,6 +64,7 @@ const stateNames: [logState, string][] = [
   ['info', '消息'],
   ['success', '投递成功'],
   ['warning', '重复沟通'],
+  ['warning', '岗位标签筛选'],
   ['warning', '岗位名筛选'],
   ['warning', '公司名筛选'],
   ['warning', '薪资筛选'],

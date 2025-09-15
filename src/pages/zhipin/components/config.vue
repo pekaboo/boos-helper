@@ -142,6 +142,12 @@ const SalaryRangeComponent = defineComponent({
             <formSelect v-model:value="conf.formData.company.value" v-model:options="conf.formData.company.options" />
           </form-item>
           <form-item
+            v-bind="formInfoData.jobLabels" v-model:enable="conf.formData.jobLabels.enable"
+            v-model:include="conf.formData.jobLabels.include" :disabled="deliverLock"
+          >
+            <form-select v-model:value="conf.formData.jobLabels.value" v-model:options="conf.formData.jobLabels.options" />
+          </form-item>
+          <form-item
             v-bind="formInfoData.jobTitle" v-model:enable="conf.formData.jobTitle.enable"
             v-model:include="conf.formData.jobTitle.include" :disabled="deliverLock"
           >

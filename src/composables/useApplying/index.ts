@@ -69,6 +69,7 @@ export async function createHandle(): Promise<{
     h.communicated(), // 已沟通过滤
     h.SameCompanyFilter(), // 相同公司过滤
     h.SameHrFilter(), // 相同hr过滤
+    h.jobLabels(), // 岗位标签过滤条件
     h.jobTitle(), // 岗位名筛选
     h.company(), // 公司名筛选
     h.salaryRange(), // 薪资筛选

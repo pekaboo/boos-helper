@@ -17,6 +17,7 @@ import {
   HrPositionError,
   JobAddressError,
   JobDescriptionError,
+  JobLabelsError,
   JobTitleError,
   RepeatError,
   SalaryError,
@@ -146,6 +147,38 @@ export function handles() {
       catch (e) {
         statistics.todayData.jobTitle++
         throw new JobTitleError(errorHandle(e))
+      }
+    }
+  }
+
+  // 自定义过滤方法  岗位标签
+  const jobLabels: StepFactory = () => {
+    if (!conf.formData.jobLabels.enable) {
+      return
+    }
+    return async ({ data }, _ctx) => {
+      try {
+        const jobLabels = data.jobLabels
+        if (!jobLabels || jobLabels.length === 0)
+          throw new JobLabelsError('岗位标签为空')
+        for (const x of conf.formData.jobLabels.value) { // 配置
+          // 岗位标签
+          for (const text of jobLabels) { // 工作标签
+            if (text.toLowerCase().includes(x.toLowerCase())) {
+              if (conf.formData.jobLabels.include) {
+                return
+              }
+              throw new JobLabelsError(`岗位名含有排除关键词 [${x}]`)
+            }
+          }
+        }
+        if (conf.formData.jobLabels.include) {
+          throw new JobLabelsError('岗位标签不包含关键词')
+        }
+      }
+      catch (e) {
+        statistics.todayData.jobLabels++
+        throw new JobLabelsError(errorHandle(e))
       }
     }
   }
@@ -583,6 +616,7 @@ export function handles() {
     communicated,
     SameCompanyFilter,
     SameHrFilter,
+    jobLabels,
     jobTitle,
     goldHunterFilter,
     company,

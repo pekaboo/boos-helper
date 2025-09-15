@@ -6,6 +6,7 @@ export interface Statistics {
   total: number
   company: number
   jobTitle: number
+  jobLabels: number
   jobContent: number
   hrPosition: number
   jobAddress: number
@@ -20,6 +21,7 @@ export interface Statistics {
 export interface FormData {
   company: FormDataSelect
   jobTitle: FormDataSelect
+  jobLabels: FormDataSelect
   jobContent: FormDataSelect
   hrPosition: FormDataSelect
   jobAddress: Omit<FormDataSelect, 'include'>

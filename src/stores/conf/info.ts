@@ -9,6 +9,10 @@ export const formInfoData: FormInfoData = {
     'label': '岗位名',
     'data-help': '岗位名排除或包含在集合中，模糊匹配，可用于只投或不投某个岗位名。',
   },
+  jobLabels: {
+    'label': '岗位标签',
+    'data-help': '岗位标签排除或包含在集合中，模糊匹配，可用于只投或不投某个岗位标签。',
+  },
   jobContent: {
     'label': '工作内容',
     'data-help': '会自动检测上文(不是,不,无需),下文(系统,工具),例子：[外包,上门,销售,驾照], 排除: \'外包岗位\', 不排除: \'不是外包\'|\'销售系统\'',
@@ -258,6 +262,7 @@ export const formInfoData: FormInfoData = {
   },
 }
 
+// 初始化 配置界面数据
 export const defaultFormData: FormData = {
   company: {
     include: false,
@@ -266,6 +271,12 @@ export const defaultFormData: FormData = {
     enable: false,
   },
   jobTitle: {
+    include: true,
+    value: [],
+    options: [],
+    enable: false,
+  },
+  jobLabels: {
     include: true,
     value: [],
     options: [],

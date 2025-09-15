@@ -22,6 +22,8 @@ function createCustomError(
 
 export const RepeatError = createCustomError('重复沟通')
 export type RepeatError = InstanceType<typeof RepeatError>
+export const JobLabelsError = createCustomError('岗位标签筛选')
+export type JobLabelsError = InstanceType<typeof JobLabelsError>
 export const JobTitleError = createCustomError('岗位名筛选')
 export type JobTitleError = InstanceType<typeof JobTitleError>
 export const CompanyNameError = createCustomError('公司名筛选')
